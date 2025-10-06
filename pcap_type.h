@@ -8,5 +8,6 @@ typedef unsigned int u_int;
 typedef unsigned long u_long;
 
 #include <pcap.h>
+#include <arpa/inet.h>
 
 #endif

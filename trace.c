@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 		ethertype = ethernet(packet);
 		switch (ethertype) {
 			case 0x0800:
-			case 0x86DD:
+			case 0x86DD: {
 				// IP processing function
 				ip_hdr_t *ip_hdr = ip(packet + sizeof(eth_hdr_t)); // skip Ethernet header
 				uint8_t ip_hdr_len = (ip_hdr->version_ihl & 0x0F) * 4;
@@ -49,6 +49,7 @@ int main(int argc, char *argv[]) {
 						continue;
 				}
 				break;
+			}
 				
 			case 0x0806:
 				// ARP processing function
